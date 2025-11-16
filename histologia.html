@@ -3,98 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PathAll+ | Histologia</title> <style>
-        /* Estilos Reutilizados da sua página para Consistência */
+    <title>PathAll+ | Histologia</title> 
+    <style>
+        /* 🎨 CSS: Regras de Estilo ADAPTADAS PARA A SUBPÁGINA (Histologia) 🎨 */
+        
+        /* Ajuste do Corpo: Flexbox para layout principal */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9; /* Voltando para o fundo cinza claro para consistência com o index */
-            color: #333;
+            background-color: #f4f4f9; 
+            color: #333; 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh; 
         }
+        
+        /* 1. ESTILO DO HEADER (MANTIDO FIXO) */
         header {
-            background-color: #004080; /* Azul escuro */
+            background-color: #004080; 
             color: white;
             padding: 30px;
             text-align: center;
+            position: sticky; 
+            top: 0;
+            z-index: 100; 
         }
+        
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 5px;
+        }
+        
+        .plus {
+            color: #FF69B4; 
+        }
+        
+        .header-link {
+            color: white; 
+            text-decoration: none;
+        }
+
+
+        /* NOVO: Container para a Barra Lateral e o Conteúdo Principal */
+        .content-wrapper {
+            display: flex; 
+            flex-grow: 1; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            width: 100%;
+        }
+
+        /* 2. A BARRA LATERAL FIXA (Sidebar) - REUTILIZANDO O ESTILO */
+        .sidebar {
+            width: 180px; 
+            padding: 30px 10px 10px 10px; 
+            background-color: white; 
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+            position: fixed; 
+            top: 170px; /* Ajuste para descer após o header */
+            left: 50%; 
+            transform: translateX(-600px); /* Centraliza e move para a esquerda (1200/2) */
+            max-height: calc(100vh - 190px); /* Ajuste de altura */
+            border-right: 1px solid #ddd;
+            overflow-y: auto; 
+        }
+        
+        /* Estilos de Navegação da Sidebar */
+        .sidebar h3 {
+            color: #333; 
+            font-size: 1.1em;
+            padding-bottom: 5px;
+            margin-bottom: 5px; 
+            font-weight: bold;
+            padding-left: 0; 
+        }
+        .sidebar h3.main-nav-title { 
+            margin-top: 10px; 
+            border-bottom: 2px solid #ddd;
+            color: #004080; 
+        }
+        .sidebar h3.page-nav-title { 
+            color: #004080; 
+            font-size: 1.1em;
+            padding-top: 10px;
+            margin-bottom: 5px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0; 
+        }
+        .sidebar li {
+            margin-bottom: 0px; 
+        }
+        .sidebar a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+            padding: 8px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        /* Destaque para o link da página atual */
+        .sidebar a.active {
+            background-color: #004080 !important; 
+            color: white !important; 
+            font-weight: bold;
+        }
+
+        /* Hover (Rosa de Destaque) */
+        .sidebar a:hover {
+            background-color: #ffe8f2; 
+            color: #FF69B4; 
+        }
+
+        /* Linha divisória */
+        .divider {
+            border-top: 3px solid #004080; 
+            margin: 20px 0 10px 0; 
+        }
+
+        /* 3. Ajuste do Conteúdo Principal */
         main {
             padding: 20px;
             max-width: 900px;
-            margin: 20px auto;
+            margin-left: 200px; /* Margem para afastar da sidebar (180px + 20px de margem) */
+            margin-top: 20px;
+            margin-bottom: 20px;
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+            flex-grow: 1; 
         }
         
-        /* NOVO: Estilo específico para Tópicos/Seções de Histologia */
+        /* Estilos para Tópicos/Seções de Histologia (mantido) */
         .topico-histologia { 
             background-color: #f9f9f9;
             padding: 20px;
             margin-bottom: 20px;
-            border-left: 5px solid #007ACC; /* Cor de destaque AZUL */
+            border-left: 5px solid #007ACC; 
             border-radius: 5px;
         }
         .topico-histologia h3 {
             color: #004080; 
             margin-top: 0;
         }
-        
-        /* Estilos do cabeçalho */
-        .header-link {
-             color: white; 
-             text-decoration: none;
-        }
-        .plus {
-             color: #FF69B4;
-        }
 
-        /* Estilo para rodapé (consistente com as sugestões anteriores) */
+        /* 4. Estilo do Rodapé */
         footer {
-            text-align: center;
-            background-color: #E0FFFF; 
-            padding: 10px 0;
-            margin-top: 50px;
+            width: 100%;
+            margin-top: auto; 
         }
-        
         footer p {
-            color: #333; /* Cor mais escura para melhor contraste */
+            text-align: center; 
+            background-color: #E0FFFF; 
+            padding: 10px;
             margin: 0;
+            color: #333;
         }
-
     </style>
 </head>
 <body>
     <header>
+        <!-- TÍTULO SEM O LINK "VOLTAR" -->
         <h1><a href="index.html" class="header-link">PathAll<span class="plus">+</span></a></h1>
-        <p>Histologia: A visão microscópica da vida!</p> </header>
+        <p>Histologia: A visão microscópica da vida!</p>
+    </header>
 
-    <main>
-        <h2>Bem-vindo à Seção de Histologia</h2> <p>
-            Histologia é a ciência que estuda os tecidos biológicos em nível microscópico. Nesta seção, exploraremos os tecidos relacionado-os com os folhetos embrionários de origem, e também a composição tecidual de cada órgão e sistema do corpo humano.
-        </p>
+    <div class="content-wrapper">
+
+        <aside class="sidebar">
+            <h3 class="main-nav-title">Navegação Principal</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li> 
+                <li><a href="patologia.html">Patologia</a></li>
+                <li><a href="embriologia.html">Embriologia</a></li>
+                <!-- Histologia AGORA está ATIVA -->
+                <li><a href="histologia.html" class="active">Histologia</a></li>
+                <li><a href="equipe.html">Conheça a Equipe</a></li>
+            </ul>
+
+            <div class="divider"></div>
+
+            <h3 class="page-nav-title">Nesta Página</h3>
+            <ul>
+                <!-- Links internos para os IDs abaixo -->
+                <li><a href="#epitelial">Tecido Epitelial</a></li>
+                <li><a href="#mesodermica">Tecidos de origem mesodérmica</a></li>
+                <li><a href="#nervoso">Tecido nervoso</a></li>
+                <li><a href="#orgaos">A histologia dos órgãos e sistemas</a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <h2>Bem-vindo à Seção de Histologia</h2> 
+            <p>
+                Histologia é a ciência que estuda os tecidos biológicos em nível microscópico. Nesta seção, exploraremos os tecidos relacionado-os com os folhetos embrionários de origem, e também a composição tecidual de cada órgão e sistema do corpo humano.
+            </p>
+            
+            <hr>
+
+            <h2>Acesse os Tópicos</h2>
+            
+            <!-- IDs adicionados para a navegação interna -->
+            <div id="epitelial" class="topico-histologia"> 
+                <h3>Tecido Epitelial</h3>
+                <p>O tecido com origem nos três folhetos embrionários.</p>
+            </div>
+
+            <div id="mesodermica" class="topico-histologia"> 
+                <h3>Tecidos de origem mesodérmica</h3>
+                <p>Os tecidos conjuntivo, ósseo, muscular, cartilaginoso e adiposo.</p>
+            </div>
+
+            <div id="nervoso" class="topico-histologia"> 
+                <h3>Tecido nervoso</h3>
+                <p>O tecido de origem unicamente ectodérmica</p>
+            </div>
+
+            <div id="orgaos" class="topico-histologia"> 
+                <h3>A histologia dos órgãos e sistemas</h3>
+                <p>Estudo da organização histológica dos principais órgãos e sistemas do corpo humano.</p>
+            </div>
+            
+        </main>
         
-        <hr>
-
-        <h2>Acesse os Tópicos</h2>
-        
-        <div class="topico-histologia"> <h3>Tecido Epitelial</h3>
-            <p>O tecido com origem nos três folhetos embrionários.</p>
-        </div>
-
-        <div class="topico-histologia"> <h3>Tecidos de origem mesodérmica</h3>
-            <p>Os tecidos conjuntivo, ósseo, muscular, cartilaginoso e adiposo.</p>
-        </div>
-
-        <div class="topico-histologia"> <h3>Tecido nervoso</h3>
-            <p>O tecido de origem unicamente ectodérmica</p>
-        </div>
-
-        <div class="topico-histologia"> <h3>A histologia dos órgãos e sistemas</h3>
-            <p>Estudo da organização histológica dos principais órgãos e sistemas do corpo humano.</p>
-        </div>
-        
-    </main>
+    </div> 
 
     <footer>
         <p>&copy; 2025 PathAll+. Todos os direitos reservados.</p>

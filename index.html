@@ -6,21 +6,29 @@
     <title>PathAll+ | Seu Projeto</title>
 
     <style>
-        /* CSS: Regras de Estilo */
+        /* CSS: Regras de Estilo ATUALIZADAS (Foco na Sidebar e Layout) */
+        
+        /* Ajuste do Corpo: Flexbox para layout principal */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9; /* Fundo cinza claro */
-            color: #333; /* Cor do texto padrão */
+            background-color: #f4f4f9; 
+            color: #333; 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh; 
         }
         
         /* 1. ESTILO DO HEADER NO CSS (USANDO O AZUL ESCURO CORRETO) */
         header {
-            background-color: #004080; /* Seu azul escuro */
+            background-color: #004080; 
             color: white;
             padding: 30px;
             text-align: center;
+            position: sticky; 
+            top: 0;
+            z-index: 100; 
         }
         
         header h1 {
@@ -29,28 +37,111 @@
         }
         
         .plus {
-            color: #FF69B4; /* Cor rosa de destaque */
-        }
-        
-        /* 2. ESTILO DA NAVEGAÇÃO LIMPA NO CSS */
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-            border-bottom: 2px solid #FF69B4;
-            padding-bottom: 5px;
+            color: #FF69B4; 
         }
 
+        /* NOVO: Container para a Barra Lateral e o Conteúdo Principal */
+        .content-wrapper {
+            display: flex; 
+            flex-grow: 1; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            width: 100%;
+        }
+
+        /* NOVO: A Barra Lateral Fixa (Sidebar) - CORREÇÃO DE LARGURA E PADDING */
+        .sidebar {
+            width: 180px; /* Aumentado para 180px */
+            padding: 30px 10px 10px 10px; /* Padding reduzido para 10px */
+            background-color: white; 
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+            position: fixed; 
+            top: 170px; 
+            left: 50%; 
+            transform: translateX(-600px); 
+            max-height: calc(100vh - 190px); 
+            border-right: 1px solid #ddd;
+        }
+        
+        /* Estilos para a navegação da Sidebar (Melhor Organização Visual) */
+        .sidebar h3 {
+            color: #333; 
+            font-size: 1.1em;
+            padding-bottom: 5px;
+            margin-bottom: 5px; 
+            font-weight: bold;
+            padding-left: 0; 
+        }
+        
+        /* CORREÇÃO DO ENCAVALADO: MARGIN-TOP NO TÍTULO PRINCIPAL */
+        .sidebar h3.main-nav-title { 
+             margin-top: 10px; /* AFASTAMENTO DO TOPO */
+             border-bottom: 2px solid #ddd;
+             color: #004080; 
+        }
+        
+        .sidebar h3.page-nav-title { 
+            color: #004080; 
+            font-size: 1.1em;
+            padding-top: 10px;
+            margin-bottom: 5px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0; 
+        }
+        .sidebar li {
+            margin-bottom: 0px; 
+        }
+        .sidebar a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+            padding: 8px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        /* Destaque para o link da página atual */
+        .sidebar a.active {
+            background-color: #004080 !important; 
+            color: white !important; 
+            font-weight: bold;
+        }
+
+        /* Hover (Rosa de Destaque) */
+        .sidebar a:hover {
+            background-color: #ffe8f2; 
+            color: #FF69B4; 
+        }
+
+        /* Linha divisória aprimorada */
+        .divider {
+            border-top: 3px solid #004080; 
+            margin: 20px 0 10px 0; 
+        }
+
+        /* Ajuste do Conteúdo Principal - MARGEM CORRIGIDA */
         main {
             padding: 20px;
             max-width: 900px;
-            margin: 20px auto;
+            margin-left: 200px; /* Largura total da sidebar (180 + 10 + 10) */
+            margin-top: 20px;
+            margin-bottom: 20px;
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+            flex-grow: 1; 
         }
         
+        /* Estilos de conteúdo e rodapé... */
+        .instalacao {
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.03);
+        }
         .botao {
             display: inline-block;
             background-color: #007ACC; 
@@ -61,41 +152,76 @@
             font-weight: bold;
             margin-top: 15px;
         }
+        footer {
+            width: 100%;
+            margin-top: auto; 
+        }
+        footer p {
+            text-align: center; 
+            background-color: #E0FFFF; 
+            padding: 10px;
+            margin: 0;
+        }
     </style>
-    
 </head>
 <body>
     <header>
         <h1>PathAll<span class="plus">+</span></h1>
         <p>Plataforma educacional apresentada por profissionais com experiência em ensino, pesquisa e assistência em instituições renomadas no Brasil e no exterior!</p>
-    
-        <nav style="margin-top: 15px;">
-            <a href="index.html">[Home]</a>
-            <a href="patologia.html">[Patologia]</a>
-            <a href="embriologia.html">[Embriologia]</a>
-            <a href="histologia.html">[Histologia]</a>
-            <a href="equipe.html">[Conheça a Equipe]</a>
-        </nav>
     </header>
 
-    <main>
-        <section class="instalacao" style="padding: 20px; max-width: 900px; margin: 20px auto; background-color: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);">
-            <h2>Recursos Principais</h2>
-            
-            <ul style="list-style-type: disc; padding-left: 20px;">
-                <li><strong>Patologia</strong> Geral e de Especialidades explicadas de modo detalhado.</li>
-                <li><strong>Histologia</strong> com ênfase na aplicação prática.</li>
-                <li>O essencial em <strong>Embriologia</strong> para a compreensão do normal e do patológico.</li>
+    <div class="content-wrapper">
+
+        <aside class="sidebar">
+            <h3 class="main-nav-title">Navegação Principal</h3>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li> 
+                <li><a href="patologia.html">Patologia</a></li>
+                <li><a href="embriologia.html">Embriologia</a></li>
+                <li><a href="histologia.html">Histologia</a></li>
+                <li><a href="equipe.html">Conheça a Equipe</a></li>
             </ul>
+
+            <div class="divider"></div>
+
+            <h3 class="page-nav-title">Nesta Página</h3>
+            <ul>
+                <li><a href="#recursos-principais">Recursos Principais</a></li>
+                <li><a href="#como-funciona">Como Funciona</a></li>
+                <li><a href="#nossos-diferenciais">Nossos Diferenciais</a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <section id="recursos-principais" class="instalacao">
+                <h2>Recursos Principais</h2>
+                
+                <ul style="list-style-type: disc; padding-left: 20px;">
+                    <li><strong>Patologia</strong> Geral e de Especialidades explicadas de modo detalhada.</li>
+                    <li><strong>Histologia</strong> com ênfase na aplicação prática.</li>
+                    <li>O essencial em <strong>Embriologia</strong> para a compreensão do normal e do patológico.</li>
+                </ul>
+                
+                <a href="#" class="botao" style="background-color: #FF69B4;">Ver no GitHub</a>
+            </section>
             
-            <a href="#" class="botao" style="background-color: #FF69B4; color: white; text-decoration: none; padding: 12px 25px; border-radius: 5px; font-weight: bold; display: inline-block; margin-top: 15px;">Ver no GitHub</a>
-        </section>
-    </main>
+            <section id="como-funciona" class="instalacao">
+                <h2>Como Funciona a PathAll+</h2>
+                <p>Nossa plataforma é modular e focada na aplicação clínica do conhecimento básico. Cada módulo inclui vídeos explicativos, slides para download e testes de conhecimento. O acesso é contínuo e atualizado regularmente por nossa equipe. Você pode navegar rapidamente pelas seções usando o menu lateral.</p>
+                <p>A PathAll+ oferece uma experiência de aprendizado aprofundada, ideal para estudantes e profissionais que buscam excelência. Utilizamos recursos visuais de alta qualidade e exemplos práticos baseados em casos reais.</p>
+            </section>
+
+            <section id="nossos-diferenciais" class="instalacao">
+                <h2>Nossos Diferenciais</h2>
+                <p>A equipe da PathAll+ possui experiência internacional e está comprometida com a excelência no ensino. Diferentemente de outros recursos, focamos em integrar Patologia, Histologia e Embriologia para uma visão completa da saúde.</p>
+                <p>Nossos diferenciais incluem mentorias ao vivo, acesso a um fórum exclusivo de dúvidas com os professores e materiais de apoio frequentemente atualizados.</p>
+            </section>
+        </main>
+        
+    </div> 
         
     <footer>
-        <p style="text-align: center; background-color: #E0FFFF; padding: 10px;">&copy; 2025 PathAll+. Todos os direitos reservados.</p>
+        <p>&copy; 2025 PathAll+. Todos os direitos reservados.</p>
     </footer>
 </body>
 </html>
-
-

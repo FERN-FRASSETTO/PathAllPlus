@@ -6,30 +6,133 @@
     <title>PathAll+ | Patologia</title>
     
     <style>
-        /* Estilos Reutilizados da sua página de Equipe para Consistência */
+        /* 🎨 CSS: Regras de Estilo ADAPTADAS PARA A SUBPÁGINA (Patologia) 🎨 */
+        
+        /* Ajuste do Corpo: Flexbox para layout principal */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #E0FFFF; /* Fundo azul claro */
-            color: #333;
+            background-color: #f4f4f9; /* Mudei para um cinza claro consistente */
+            color: #333; 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh; 
         }
+        
+        /* 1. ESTILO DO HEADER (MANTIDO FIXO) */
         header {
-            background-color: #004080; /* Azul escuro */
+            background-color: #004080; 
             color: white;
             padding: 30px;
             text-align: center;
+            position: sticky; 
+            top: 0;
+            z-index: 100; 
         }
+        
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 5px;
+        }
+        
+        .plus {
+            color: #FF69B4; 
+        }
+
+        /* NOVO: Container para a Barra Lateral e o Conteúdo Principal */
+        .content-wrapper {
+            display: flex; 
+            flex-grow: 1; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            width: 100%;
+        }
+
+        /* 2. A BARRA LATERAL FIXA (Sidebar) */
+        .sidebar {
+            width: 180px; 
+            padding: 30px 10px 10px 10px; 
+            background-color: white; 
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+            position: fixed; 
+            top: 170px; /* Ajuste para descer após o header */
+            left: 50%; 
+            transform: translateX(-600px); /* Centraliza e move para a esquerda (1200/2) */
+            max-height: calc(100vh - 190px); /* Ajuste de altura */
+            border-right: 1px solid #ddd;
+            overflow-y: auto; /* Adiciona scroll se o conteúdo for muito longo */
+        }
+        
+        /* Estilos de Navegação da Sidebar */
+        .sidebar h3 {
+            color: #333; 
+            font-size: 1.1em;
+            padding-bottom: 5px;
+            margin-bottom: 5px; 
+            font-weight: bold;
+            padding-left: 0; 
+        }
+        .sidebar h3.main-nav-title { 
+            margin-top: 10px; 
+            border-bottom: 2px solid #ddd;
+            color: #004080; 
+        }
+        .sidebar h3.page-nav-title { 
+            color: #004080; 
+            font-size: 1.1em;
+            padding-top: 10px;
+            margin-bottom: 5px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0; 
+        }
+        .sidebar li {
+            margin-bottom: 0px; 
+        }
+        .sidebar a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+            padding: 8px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        /* Destaque para o link da página atual */
+        .sidebar a.active {
+            background-color: #004080 !important; 
+            color: white !important; 
+            font-weight: bold;
+        }
+
+        /* Hover (Rosa de Destaque) */
+        .sidebar a:hover {
+            background-color: #ffe8f2; 
+            color: #FF69B4; 
+        }
+
+        /* Linha divisória */
+        .divider {
+            border-top: 3px solid #004080; 
+            margin: 20px 0 10px 0; 
+        }
+
+        /* 3. Ajuste do Conteúdo Principal */
         main {
             padding: 20px;
             max-width: 900px;
-            margin: 20px auto;
+            margin-left: 200px; /* A margem garante que o main comece após a sidebar (180px + 20px de margem) */
+            margin-top: 20px;
+            margin-bottom: 20px;
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+            flex-grow: 1; 
         }
         
-        /* Estilo para Tópicos/Seções (para preencher no futuro) */
+        /* Estilos para Tópicos/Seções */
         .topico-patologia {
             background-color: #f9f9f9;
             padding: 20px;
@@ -41,48 +144,85 @@
             color: #004080; 
             margin-top: 0;
         }
+
+        /* 4. Estilo do Rodapé */
+        footer {
+            width: 100%;
+            margin-top: auto; 
+        }
+        footer p {
+            text-align: center; 
+            background-color: #E0FFFF; 
+            padding: 10px;
+            margin: 0;
+            color: #333;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1><a href="index.html" style="color: white; text-decoration: none;">PathAll<span style="color: #FF69B4;">+</span></a></h1>
+        <h1>PathAll<span class="plus">+</span></h1>
         <p>Patologia em foco: o estudo das doenças.</p>
-        <a href="index.html" style="color: white; text-decoration: underline;">← Voltar para a página principal</a>
     </header>
 
-    <main>
-        <h2>Bem-vindo à Seção de Patologia</h2>
-        
-        <p>
-            Patologia é a área que se dedica ao estudo das doenças, do que é patológico. Clique nos links abaixo para acessar os principais tópicos dessa disciplina.
-        </p>
-        
-        <hr>
+    <div class="content-wrapper">
 
-        <h2>Acesse os Tópicos</h2>
+        <aside class="sidebar">
+            <h3 class="main-nav-title">Navegação Principal</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li> 
+                <li><a href="patologia.html" class="active">Patologia</a></li>
+                <li><a href="embriologia.html">Embriologia</a></li>
+                <li><a href="histologia.html">Histologia</a></li>
+                <li><a href="equipe.html">Conheça a Equipe</a></li>
+            </ul>
+
+            <div class="divider"></div>
+
+            <h3 class="page-nav-title">Nesta Página</h3>
+            <ul>
+                <li><a href="#introducao">Introdução à Patologia</a></li>
+                <li><a href="#geral">Patologia Geral</a></li>
+                <li><a href="#especifica">Patologia Específica</a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <h2>Bem-vindo à Seção de Patologia</h2>
+            
+            <p>
+                Patologia é a área que se dedica ao estudo das doenças, do que é patológico. Clique nos links abaixo para acessar os principais tópicos dessa disciplina.
+            </p>
+            
+            <hr>
+
+            <h2>Acesse os Tópicos</h2>
+            
+            <div id="introducao" class="topico-patologia">
+                <h3>Introdução à Patologia</h3>
+                <p>Os conceitos essenciais para começar seus estudos.</p>
+            </div>
+
+            <div id="geral" class="topico-patologia">
+                <h3>Patologia Geral</h3>
+                <p>Os mecanismos básicos necessários para a compreensão dos processos das doenças.</p>
+            </div>
+
+            <div id="especifica" class="topico-patologia">
+                <h3>Patologia Específica</h3>
+                <p>Os processos patológicos de cada sistema do organismo humano.</p>
+            </div>
+            
+            <section style="height: 500px; background-color: #f0f0ff; padding: 20px; border-radius: 5px;">
+                <p>Conteúdo de preenchimento para testar o scroll...</p>
+            </section>
+            
+        </main>
         
-        <div class="topico-patologia">
-            <h3>Introdução à Patologia</h3>
-            <p>Os conceitos essenciais para começar seus estudos.</p>
-        </div>
-
-        <div class="topico-patologia">
-            <h3>Patologia Geral</h3>
-            <p>Os mecanismos básicos necessários para a compreensão dos processos das doenças.</p>
-        </div>
-
-        <div class="topico-patologia">
-            <h3>Patologia Específica</h3>
-            <p>Os processos patológicos de cada sistema do organismo humano.<p>
-        </div>
+    </div> 
         
-    </main>
-
     <footer>
-        <p style="text-align: center; color: #777; margin-top: 50px;">&copy; 2025 PathAll+. Todos os direitos reservados.</p>
+        <p>&copy; 2025 PathAll+. Todos os direitos reservados.</p>
     </footer>
 </body>
 </html>
-
-
-
