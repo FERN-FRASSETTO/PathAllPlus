@@ -132,6 +132,12 @@
             flex-grow: 1; 
         }
         
+        /* NOVO CSS: Espaçamento de Linha Melhorado */
+        main p {
+            line-height: 1.6; /* Aumenta a altura da linha para 160% */
+            margin-bottom: 15px; /* Adiciona mais espaço entre parágrafos (se não estiverem dentro de um topico) */
+        }
+
         /* Estilos para Tópicos/Seções */
         .topico-patologia {
             background-color: #f9f9f9;
@@ -139,6 +145,11 @@
             margin-bottom: 20px;
             border-left: 5px solid #FF69B4; /* Linha rosa lateral */
             border-radius: 5px;
+        }
+        /* Ajuste do parágrafo dentro do topico-patologia para garantir line-height 1.6 */
+        .topico-patologia p { 
+            line-height: 1.6; 
+            margin-bottom: 0; /* Remove margem extra se for um parágrafo curto de descrição */
         }
         .topico-patologia h3 {
             color: #004080; 
@@ -212,10 +223,6 @@
                 <h3>Patologia Específica</h3>
                 <p>Os processos patológicos de cada sistema do organismo humano.</p>
             </div>
-            
-            <section style="height: 500px; background-color: #f0f0ff; padding: 20px; border-radius: 5px;">
-                <p>Conteúdo de preenchimento para testar o scroll...</p>
-            </section>
             
         </main>
         

@@ -75,9 +75,9 @@
         
         /* CORREÇÃO DO ENCAVALADO: MARGIN-TOP NO TÍTULO PRINCIPAL */
         .sidebar h3.main-nav-title { 
-             margin-top: 10px; /* AFASTAMENTO DO TOPO */
-             border-bottom: 2px solid #ddd;
-             color: #004080; 
+            margin-top: 10px; /* AFASTAMENTO DO TOPO */
+            border-bottom: 2px solid #ddd;
+            color: #004080; 
         }
         
         .sidebar h3.page-nav-title { 
@@ -134,7 +134,7 @@
             flex-grow: 1; 
         }
         
-        /* Estilos de conteúdo e rodapé... */
+        /* Estilos de conteúdo */
         .instalacao {
             padding: 20px;
             margin-bottom: 20px;
@@ -142,6 +142,28 @@
             border-radius: 8px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.03);
         }
+
+        /* NOVO: Estilo para o título <h2> dentro das seções */
+        .instalacao h2 {
+            background-color: #FF69B4; /* Cor Rosa */
+            color: white; /* Cor do texto para contrastar */
+            padding: 8px 15px; /* Espaçamento interno */
+            /* Truque para esticar a cor de ponta a ponta e compensar o padding da seção */
+            margin: -20px -20px 20px -20px; 
+            border-radius: 8px 8px 0 0; /* Arredondar só os cantos superiores */
+        }
+        
+        /* NOVO CSS PARA MELHORAR O ESPAÇAMENTO DO TEXTO */
+        main p {
+            line-height: 1.6; /* Aumenta a altura da linha para 160% */
+            margin-bottom: 15px; /* Adiciona mais espaço entre parágrafos */
+        }
+        .instalacao ul li {
+            line-height: 1.6;
+            margin-bottom: 5px; 
+        }
+        
+        /* Estilo do botão de Recurso Principal (MANTIDO) */
         .botao {
             display: inline-block;
             background-color: #007ACC; 
@@ -152,6 +174,8 @@
             font-weight: bold;
             margin-top: 15px;
         }
+
+        /* 4. Estilo do Rodapé */
         footer {
             width: 100%;
             margin-top: auto; 
@@ -161,7 +185,9 @@
             background-color: #E0FFFF; 
             padding: 10px;
             margin: 0;
+            color: #333; 
         }
+        
     </style>
 </head>
 <body>
@@ -202,7 +228,6 @@
                     <li>O essencial em <strong>Embriologia</strong> para a compreensão do normal e do patológico.</li>
                 </ul>
                 
-                <a href="#" class="botao" style="background-color: #FF69B4;">Ver no GitHub</a>
             </section>
             
             <section id="como-funciona" class="instalacao">
@@ -221,7 +246,9 @@
     </div> 
         
     <footer>
-        <p>&copy; 2025 PathAll+. Todos os direitos reservados.</p>
+        <p>
+            &copy; 2025 PathAll+. Todos os direitos reservados.
+        </p>
     </footer>
 </body>
 </html>

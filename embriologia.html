@@ -137,14 +137,24 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
             flex-grow: 1; 
         }
+
+        /* NOVO CSS: Espaçamento de Linha Melhorado */
+        main p {
+            line-height: 1.6; /* Aumenta a altura da linha para 160% */
+            margin-bottom: 15px; /* Adiciona mais espaço entre parágrafos */
+        }
         
-        /* Estilos para Tópicos/Seções de Embriologia (mantido) */
+        /* Estilos para Tópicos/Seções de Embriologia */
         .topico-embriologia {
             background-color: #f9f9f9;
             padding: 20px;
             margin-bottom: 20px;
             border-left: 5px solid #FF69B4; /* Linha rosa lateral */
             border-radius: 5px;
+        }
+        .topico-embriologia p { 
+            line-height: 1.6; /* Garante o espaçamento nos parágrafos dos tópicos */
+            margin-bottom: 0;
         }
         .topico-embriologia h3 {
             color: #004080; 
@@ -167,7 +177,6 @@
 </head>
 <body>
     <header>
-        <!-- TÍTULO SEM O LINK "VOLTAR PARA A PÁGINA PRINCIPAL" -->
         <h1><a href="index.html" class="header-link">PathAll<span class="plus">+</span></a></h1>
         <p>Embriologia em foco: Conceitos essenciais e as oito primeiras semanas do desenvolvimento.</p>
     </header>
@@ -179,7 +188,6 @@
             <ul>
                 <li><a href="index.html">Home</a></li> 
                 <li><a href="patologia.html">Patologia</a></li>
-                <!-- Embriologia AGORA está ATIVA -->
                 <li><a href="embriologia.html" class="active">Embriologia</a></li>
                 <li><a href="histologia.html">Histologia</a></li>
                 <li><a href="equipe.html">Conheça a Equipe</a></li>
@@ -189,7 +197,6 @@
 
             <h3 class="page-nav-title">Nesta Página</h3>
             <ul>
-                <!-- Links internos para os IDs abaixo -->
                 <li><a href="#introducao">Introdução à Embriologia</a></li>
                 <li><a href="#pre-embrionario">Período Pré Embrionário</a></li>
                 <li><a href="#embrionario">Período Embrionário</a></li>
@@ -207,7 +214,6 @@
 
             <h2>Acesse os Tópicos</h2>
             
-            <!-- IDs adicionados para a navegação interna -->
             <div id="introducao" class="topico-embriologia">
                 <h3>Introdução à Embriologia</h3>
                 <p>Os conceitos essenciais para começar seus estudos.</p>

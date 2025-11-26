@@ -137,13 +137,23 @@
             flex-grow: 1; 
         }
         
+        /* NOVO CSS: Espaçamento de Linha Melhorado */
+        main p {
+            line-height: 1.6; /* Aumenta a altura da linha para 160% */
+            margin-bottom: 15px; /* Adiciona mais espaço entre parágrafos */
+        }
+        
         /* Estilos para Tópicos/Seções de Histologia (mantido) */
         .topico-histologia { 
             background-color: #f9f9f9;
             padding: 20px;
             margin-bottom: 20px;
-            border-left: 5px solid #007ACC; 
+            border-left: 5px solid #FF69B4; 
             border-radius: 5px;
+        }
+        .topico-histologia p { 
+            line-height: 1.6; /* Garante o espaçamento nos parágrafos dos tópicos */
+            margin-bottom: 0; /* Ajusta a margem para evitar excesso de espaço abaixo do texto curto */
         }
         .topico-histologia h3 {
             color: #004080; 
@@ -166,7 +176,6 @@
 </head>
 <body>
     <header>
-        <!-- TÍTULO SEM O LINK "VOLTAR" -->
         <h1><a href="index.html" class="header-link">PathAll<span class="plus">+</span></a></h1>
         <p>Histologia: A visão microscópica da vida!</p>
     </header>
@@ -179,7 +188,6 @@
                 <li><a href="index.html">Home</a></li> 
                 <li><a href="patologia.html">Patologia</a></li>
                 <li><a href="embriologia.html">Embriologia</a></li>
-                <!-- Histologia AGORA está ATIVA -->
                 <li><a href="histologia.html" class="active">Histologia</a></li>
                 <li><a href="equipe.html">Conheça a Equipe</a></li>
             </ul>
@@ -188,7 +196,6 @@
 
             <h3 class="page-nav-title">Nesta Página</h3>
             <ul>
-                <!-- Links internos para os IDs abaixo -->
                 <li><a href="#epitelial">Tecido Epitelial</a></li>
                 <li><a href="#mesodermica">Tecidos de origem mesodérmica</a></li>
                 <li><a href="#nervoso">Tecido nervoso</a></li>
@@ -206,7 +213,6 @@
 
             <h2>Acesse os Tópicos</h2>
             
-            <!-- IDs adicionados para a navegação interna -->
             <div id="epitelial" class="topico-histologia"> 
                 <h3>Tecido Epitelial</h3>
                 <p>O tecido com origem nos três folhetos embrionários.</p>
